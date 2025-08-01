@@ -91,8 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateGrid(event.progress);
     })
     .addTo(controller)
-    .addIndicators();
-    // Initialize and handle resize
     initGrid();
     window.addEventListener('resize', () => {
         initGrid();

@@ -7,7 +7,7 @@
         position: relative;
         canvas {
             width: 100%;
-            height: 100%;
+            height: 103vh;
         }
     }
 
@@ -47,13 +47,13 @@
                 h2 {
                     font-family: "Onest", "Martian Mono", sans-serif, Arial;
                     font-weight: 570;
-                    font-size: 120px;
-                    line-height: 120px;
+                    font-size: 160px;
+                    line-height: 160px;
                     text-transform: uppercase;
                     color: #fff;
                     text-align: center;
                     letter-spacing: -8px;
-
+                    white-space: nowrap;
                     span {
                         font-family: "Chava", "Onest", sans-serif, Arial;
                         font-size: 118px;
@@ -118,14 +118,14 @@
                     letter-spacing: 0%;
                     text-transform: uppercase;
                     color: #fff;
-                    width: 600px;
+                    width: 497px;
                 }
 
                 p {
                     font-family: "Onest";
                     font-weight: 570;
-                    font-size: 68px;
-                    line-height: 72px;
+                    font-size: 80px;
+                    line-height: 84px;
                     letter-spacing: -2%;
                     text-transform: uppercase;
                     color: #fff;
@@ -150,8 +150,8 @@
                     span {
                         font-family: "Onest";
                         font-weight: 570;
-                        font-size: 68px;
-                        line-height: 88px;
+                        font-size: 80px;
+                        line-height: 84px;
                         letter-spacing: -2%;
                         text-transform: uppercase;
                         color: #fff;
@@ -164,8 +164,8 @@
                         color: #fff;
                         font-family: "Onest";
                         font-weight: 570;
-                        font-size: 68px;
-                        line-height: 68px;
+                        font-size: 80px;
+                        line-height: 84px;
                         letter-spacing: -2%;
                         text-transform: uppercase;
                         display: flex;
@@ -180,7 +180,7 @@
                     width: 100%;
                     justify-content: flex-end;
                     input{
-                        width: 724px;
+                        width: 730px;
                     }
                 }
                 .wrap:nth-child(2){
@@ -193,25 +193,25 @@
                 .wrap:nth-child(3){
                     justify-content: flex-end;
                     input{
-                        width: 1605px;
+                        width: 1530px;
                     }
                 }
                 .wrap:nth-child(4){
                     justify-content: flex-end;
                     span{
-                        width: 68%;
+                        width: 1014px;
                     }
                 }
                 .wrap:nth-child(5){
                     justify-content: flex-end;
                     input{
-                        width: 1404px;
+                        width: 1260px;
                     }
                 }
                 .wrap:nth-child(6){
                     justify-content: flex-end;
                     span{
-                        width: 67.5%;
+                        width: 1014px;
                     }
                 }
                 .wrap:nth-child(7){

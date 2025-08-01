@@ -61,17 +61,36 @@ const descContainer = document.querySelector('.services__list-desc');
 const desc = Array.from(descContainer.querySelectorAll('p'));
 gsap.set(titles, { opacity: 0, display: 'none' });
 gsap.set(desc, { opacity: 0, display: 'none' });
+gsap.ticker.lagSmoothing(0);
+ScrollTrigger.normalizeScroll(true);
 const masterTL = gsap.timeline({
     scrollTrigger: {
         trigger: ".services__list",
         start: "top top",
-        end: "+=1500%",
-        scrub: 1,
+        end: "+=1000%", // Уменьшенное значение
+        scrub: 0.5, // Более быстрый отклик
         pin: true,
-        markers: true
+        onEnter: () => masterTL.play(),
+        onLeave: () => masterTL.progress(1),
+        onEnterBack: () => masterTL.play(),
+        onLeaveBack: () => masterTL.progress(0),
+        fastScrollEnd: true // Специальная опция для быстрого скролла
     }
 });
-
+if (masterTL.scrollTrigger) {  // Добавьте проверку
+    const st = ScrollTrigger.getById(masterTL.scrollTrigger.id);
+    if (st && st.progress > 0.9) masterTL.progress(1);
+}
+let lastScrollTime = 0;
+window.addEventListener('scroll', () => {
+    const now = Date.now();
+    if (now - lastScrollTime < 50 && masterTL.scrollTrigger) { // Проверяем наличие scrollTrigger
+        const st = ScrollTrigger.getById(masterTL.scrollTrigger.id);
+        if (st && st.progress > 0.9) masterTL.progress(1); // Проверяем st
+        if (st && st.progress < 0.1) masterTL.progress(0);
+    }
+    lastScrollTime = now;
+});
 const numberElement = document.getElementById('number');
 
 Object.keys(SHAPES).forEach((shape, index) => {
@@ -86,19 +105,19 @@ Object.keys(SHAPES).forEach((shape, index) => {
         ease: "power2.inOut"
     }, `shape-${index}-start`);
 
-    masterTL.to(".cell", {
-        fill: () => gsap.utils.random(["#442CBF"]),
-        duration: 0.3,
-        stagger: {
-            each: 0.03,
-            from: "random",
-            repeat: 3,
-            yoyo: true
-        },
-        onComplete: function () {
-            gsap.set(".cell", { fill: 'transparent' });
-        }
-    }, ">0.3");
+    // masterTL.to(".cell", {
+    //     fill: () => gsap.utils.random(["#442CBF"]),
+    //     duration: 0.3,
+    //     stagger: {
+    //         each: 0.03,
+    //         from: "random",
+    //         repeat: 3,
+    //         yoyo: true
+    //     },
+    //     onComplete: function () {
+    //         gsap.set(".cell", { fill: 'transparent' });
+    //     }
+    // }, ">0.3");
 
     if (prevTitle && prevDesc) {
         masterTL.to([prevTitle, prevDesc], {

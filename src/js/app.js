@@ -40,6 +40,8 @@ import Video from './modules/AnimateOnScrollVideo.js';
 import Intro from './modules/AnimateonScrollIntro.js';
 import About from './modules/AboutCursore.js';
 import Services from './modules/AnimationServices.js';
+import Case from './modules/AnimateCase.js';
+import Clients from './modules/ClientCursor.js';
 // Sketch img effect
 import Sketch from './modules/Sketch.js';
 

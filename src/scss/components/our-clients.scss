@@ -1,14 +1,27 @@
 .our-clients {
-  padding: 110rem 0 200rem;
+  padding: 110rem 0 300rem;
   position: relative;
+  overflow: hidden;
+
+  #gridCanvasClients {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    opacity: 0.8;
+    mix-blend-mode: overlay;
+  }
+
   &__decor {
     color: $accentColor;
     filter: drop-shadow(0 0 1px $accentColor);
     position: absolute;
+
     &-wrapper {
       pointer-events: none;
       user-select: none;
     }
+
     &--1 {
       width: 490rem;
       height: 490rem;
@@ -18,6 +31,7 @@
       transform: translate(-50%, 0);
       z-index: -5;
     }
+
     &--2 {
       width: 164rem;
       height: 164rem;
@@ -27,40 +41,76 @@
       transform: translate(-50%, 0);
       z-index: -6;
     }
+
     &--3 {
       width: 380rem;
       height: 380rem;
       margin-left: -125rem;
-      bottom: 126rem;
-      left: 50%;
+      bottom: -25rem;
+      left: 59.6%;
       transform: translate(var(--bg-pos-x), var(--bg-pos-y));
       z-index: -7;
     }
   }
-  &__container {
-  }
+
+  &__container {}
+
   &__header {
     margin: 180rem 0 160rem;
     text-align: center;
   }
+
   &__title {
     margin: 0 0 24rem;
   }
+
   &__subtitle {
     margin: 0;
     line-height: 1;
-    span {
+
+    span {}
+  }
+
+  @keyframes marquee1 {
+    0% {
+      transform: translateX(0%);
     }
+
+    100% {
+      transform: translateX(-164.8%);
+
+    }
+  }
+
+  @keyframes marquee2 {
+    0% {
+      transform: translateX(-164.8%);
+    }
+
+    100% {
+      transform: translateX(0%);
+
+    }
+  }
+  &__marquee:nth-child(1){
+    animation: marquee1 10s infinite linear;
+    will-change: transform;
+  }
+  &__marquee:nth-child(2){
+    animation: marquee2 10s infinite linear;
+    will-change: transform;
   }
   &__marquee {
     display: flex;
     flex-wrap: nowrap;
     color: currentColor;
-    & + & {
+
+    &+& {
       margin-top: var(--gap-fluid);
     }
-    &-wrapper {
-    }
+
+    &-wrapper {}
+
     &-card {
       width: calc(9 * var(--grid-size) + 1px);
       height: calc(5 * var(--grid-size) + 1px);
@@ -71,9 +121,10 @@
       flex-shrink: 0;
       position: relative;
       z-index: 0;
+
       &:before {
         background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-                          linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+          linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
         background-size: var(--grid-size) var(--grid-size);
         background-position: var(--bg-pos-x, 0px) var(--bg-pos-y, 0px);
         width: 100%;
@@ -85,9 +136,11 @@
         z-index: -1;
       }
     }
+
     &-logo {
       width: 338rem;
       height: 126rem;
+
       img,
       svg {
         width: 100%;
